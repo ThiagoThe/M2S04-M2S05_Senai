@@ -1,0 +1,14 @@
+{
+  "name": "m2s04-m2s05",
+  "version": "1.0.0",
+  "description": "Exercicios da semana 4 e 5 fullstack senai",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thiago Pereira Pires",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
