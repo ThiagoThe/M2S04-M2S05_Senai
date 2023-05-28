@@ -11,7 +11,7 @@ const patchList = async (req, res) => {
           const newIndex = Math.floor(Math.random() * (list.length - 1)) + 1;
           swapItems(list, index, newIndex);
           updateList(list);
-          res.status(200).json({ message: "List updated", list });
+          res.status(200).json({ message: "Lista atualizada", list });
         } else {
           res
             .status(400)
@@ -22,7 +22,7 @@ const patchList = async (req, res) => {
         if (list.includes("Danilo") && list.includes("Pedro")) {
           swapItems(list, list.indexOf("Danilo"), list.indexOf("Pedro"));
           updateList(list);
-          res.status(200).json({ message: "List updated", list });
+          res.status(200).json({ message: "Lista atualizada", list });
         } else {
           res
             .status(400)
