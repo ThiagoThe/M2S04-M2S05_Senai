@@ -3,7 +3,7 @@ const { getList, updateList } = require("../utils");
 const patchList = async (req, res) => {
   try {
     const lista = getList("list");
-    const { usuario } = req.body;
+    const { usuario } = req.body;  // ex: { usuario: "Danilo" }
    
     // Verificação dos nomes na lista
     function checkUsuario(usuario){
