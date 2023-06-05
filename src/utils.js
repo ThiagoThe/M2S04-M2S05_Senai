@@ -1,9 +1,10 @@
+const { log } = require("console");
 const fs = require("fs");
 
-function getList() {
+function getList(nomeDoBD) {
   try {
     const listData = JSON.parse(
-      fs.readFileSync("src/database/list.json", "utf-8")
+      fs.readFileSync(`src/database/${nomeDoBD}.json`, "utf-8")
     );
     return listData;
   } catch (error) {
@@ -19,10 +20,4 @@ function updateList(list) {
   }
 }
 
-function swapItems(list, index1, index2) {
-  const temp = list[index1];
-  list[index1] = list[index2];
-  list[index2] = temp;
-}
-
-module.exports = { getList, updateList, swapItems };
+module.exports = { getList, updateList };
