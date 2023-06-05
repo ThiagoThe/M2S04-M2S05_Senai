@@ -28,7 +28,7 @@ const patchList = async (req, res) => {
       lista[0] = "Danilo";
      
     } 
-    updateList(lista);
+    updateList(lista, "list");
     res.status(200).json({lista, messagem: "A lista foi atualizada com sucesso" });
   } catch (error) {
     res.status(404).json({ message: error.message });

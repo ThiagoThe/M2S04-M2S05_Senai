@@ -1,4 +1,3 @@
-const { log } = require("console");
 const fs = require("fs");
 
 function getList(nomeDoBD) {
@@ -12,9 +11,9 @@ function getList(nomeDoBD) {
   }
 }
 
-function updateList(list) {
+function updateList(list, nomeDoBD) {
   try {
-    fs.writeFileSync("src/database/list.json", JSON.stringify(list));
+    fs.writeFileSync(`src/database/${nomeDoBD}.json`, JSON.stringify(list));
   } catch (error) {
     throw error;
   }
