@@ -13,12 +13,12 @@ const salvarProdutos = async (req, res) => {
     }
 
     const produtos = getList("produtos");
-    console.log(produtos);
+
     const novoProduto = {
       id: generateId(),
       item,
     };
-    console.log(novoProduto);
+
     if (produtos.length === 0 || produtos === null) {
       updateList(novoProduto, "produtos");
       return res.status(201).send({
@@ -26,7 +26,7 @@ const salvarProdutos = async (req, res) => {
         dados: getList("produtos"),
       });
     }
-    console.log(produtos);
+
     const totalProdutos = [...produtos, novoProduto];
     updateList("produtos", totalProdutos);
     return res
