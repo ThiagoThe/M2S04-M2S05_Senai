@@ -37,4 +37,23 @@ const salvarProdutos = async (req, res) => {
   }
 };
 
-module.exports = { salvarProdutos };
+const deletarProdutos = async (req, res) => {
+  const { id } = req.params;
+  const produtos = getList("produtos");
+
+  if (!produtos) {
+    return res.status(400).send({ mensagem: "Não há produtos cadastrados" });
+  }
+
+  const produtoIndex = produtos.some((produto) => produto.id === id);
+
+  if (!produtoIndex) {
+    return res.status(404).send({ mensagem: "Produto não encontrado" });
+  }
+
+  produtos.splice(produtoIndex, 1);
+  updateList("produtos", produtos);
+  return res.status(200).send({ mensagem: "Produto deletado com sucesso" });
+};
+
+module.exports = { salvarProdutos, deletarProdutos };
