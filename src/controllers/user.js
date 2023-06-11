@@ -19,6 +19,7 @@ async function filter(req, res) {
       (user) => user.age >= parseInt(ageMin)
     );
 
+    // Se não houver nenhum usuário com a idade mínima, retorna 404 , resolução ex.8
     if (filteredUsers.length === 0) {
       return res.status(404).json({ message: "Nenhum usuário encontrado" });
     }
