@@ -81,7 +81,6 @@ async function changeData(req, res) {
 
   const currentUser = users[userIndex];
   const newInfo = {};
-  console.log(userIndex);
 
   if (name && name !== currentUser.name) {
     newInfo.name = name;
