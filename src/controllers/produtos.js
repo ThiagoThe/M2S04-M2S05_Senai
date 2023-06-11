@@ -8,15 +8,28 @@ const salvarProdutos = async (req, res) => {
       return res.status(406).send({ mensagem: "O item não pode ser vazio" });
     }
 
+    // verifica se o item é uma string ex.9
     if (typeof item !== "string") {
       return res.status(412).send({ mensagem: "O item deve ser tipo string" });
     }
+
+    // converte as letras minusculas em maiusculas e vice-versa ex.9
+    const converteItem = item
+      .split("")
+      .map((letra) => {
+        if (letra === letra.toLowerCase()) {
+          return letra.toUpperCase();
+        } else {
+          return letra.toLowerCase();
+        }
+      })
+      .join("");
 
     const produtos = getList("produtos");
 
     const novoProduto = {
       id: generateId(),
-      item,
+      item: converteItem, // chama a função de conversão
     };
 
     if (produtos.length === 0 || produtos === null) {
