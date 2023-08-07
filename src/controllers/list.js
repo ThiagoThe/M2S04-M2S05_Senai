@@ -3,12 +3,13 @@ const { getList, updateList } = require("../utils");
 const patchList = async (req, res) => {
   try {
     const lista = getList("list");
-    const { usuario } = req.body;  // ex: { usuario: "Danilo" }
-   
+    const  usuario   = req.body;  // ex: { usuario: "Danilo" }
+    
+    
     // Verificação dos nomes na lista
     function checkUsuario(usuario){
     return lista.some(function(el) {
-      return el.toLowerCase() === usuario.toLowerCase();
+      return el == usuario;
     });
    }
    if(!checkUsuario(usuario)){
@@ -39,7 +40,7 @@ const listar = async (req, res) => {
   try {
     const listaCompleta = getList("list");
 
-    return res.status(200).json({ listaCompleta });
+    return res.status(200).send(listaCompleta);
   } catch (error) {
     return res.status(400).send({ error: "Erro ao listar" });
   }
